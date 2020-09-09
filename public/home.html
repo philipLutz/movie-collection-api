@@ -8,6 +8,53 @@
   <body>
     <main>
       <h1>Movie Collection API</h1>
+      <!-- <div id="collection">
+        <h2>Your Collection</h2>
+        <div id="collection-results"></div>
+        <button role="button" class="js-get-collection" >Get Collection</button>
+      </div> -->
+      
+      
+      <div id="search">
+        <form id="js-search-form">
+          <fieldset>
+            <div class="form-input">
+  						<label for="js-search-movie" class="label"><b>Movie Search</b></label>
+  						<div>
+  							<input id="js-search-movie" class="input" type="string" placeholder="Kill Bill" required>
+  						</div>
+              <label for="js-search-movie-page" class="label"><b>Page Number</b></label>
+              <div>
+  							<input id="js-search-movie-page" class="input" type="string" placeholder="1" required>
+  						</div>
+  					</div>
+            <button role="button" type="submit" class="button">Search</button>
+          </fieldset>
+        </form>
+        <h2>Search Results</h2>
+        <form id="js-search-form-results">
+          <fieldset>
+            <div class="form-input" id="results">
+  						
+  					</div>
+            <button role="button" id="add" class="button">Add to Collection</button>
+            <button role="button" id="delete" class="button">Delete from Collection</button>
+          </fieldset>
+        </form>
+        <div >
+          
+        </div>
+        <h3>Total Search Results: </h3>
+        <div id="summary">
+          0
+        </div>
+      </div>
+      <br>
+      <div id="logout">
+        <button type="button" role="button" class="js-logout-button">Log Out</button>
+      </div>
     </main>
+    <script type="text/javascript" src="./js/protected.js"></script>
+    <script type="text/javascript" src="./js/movies.js"></script>
   </body>
 </html>

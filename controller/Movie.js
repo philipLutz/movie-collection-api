@@ -25,13 +25,17 @@ const Movie = {
 		})
   },
   search(req, res, next) {
+    let index = req.params.movie_query.search("page_number=");
+    let pageNum = req.params.movie_query.substring(index+12);
     const options = {
       url: 'https://api.themoviedb.org/3/search/movie?api_key='+ 
         process.env.KEY +
-        '&query=' + req.params.movie_query,
+        '&query=' + req.params.movie_query.substring(0, index) + 
+        '&page=' + pageNum,
       method: 'GET'
     };
     request(options).pipe(res)
+    // console.log(req.params.movie_query);
   },
   add(req, res, next) {
     if (!req.body.api_id) {
