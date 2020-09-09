@@ -38,6 +38,13 @@ app.use(limiter);
 // Allow app to parse JSON
 app.use(express.json());
 
+// Serve Static
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/signup.html');
+});
+
 // Dummy Endpoint
 app.get('/api', (req, res) => {
 	return res.status(200).send({'message': 'Movie Collection API'});

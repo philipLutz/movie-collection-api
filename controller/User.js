@@ -23,8 +23,7 @@ const User = {
 					user_id: uuidv4(),
 					email: req.body.email,
 					password: hashPassword,
-					created_date: moment(new Date()),
-					modified_date: moment(new Date())
+					created_date: moment(new Date())
 				}];
 				queries.addUser(user)
 				.then(function() {
@@ -54,18 +53,7 @@ const User = {
 				let expiry = new Date();
 				expiry.setDate(expiry.getDate() + parseInt(process.env.EXPIRY.charAt(0)));
 				const token = Auth.generateToken(user.user_id);
-				const clientToken = Auth.generateClientToken(user.user_id);
-				const cookieConfig = {
-					httpOnly: true,
-					// In production, secure should be set to true.  While doing local testing, I am not using https
-					secure: false,
-					signed: false,
-					expires: expiry
-				}
-				return res.status(200).cookie('token', token, cookieConfig).send([
-					{'message': 'Login success'},
-					{'client_token': clientToken}
-				]);
+				return res.status(200).send({ token });
 			}
 		})
 		.catch(function(error) {

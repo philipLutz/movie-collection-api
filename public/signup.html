@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <main>
+      <h1>Sign Up</h1>
+      <form id="js-signup-form">
+        <fieldset>
+          <div class="form-input">
+						<label for="js-signup-email" class="label"><b>Email address</b></label>
+						<div>
+							<input id="js-signup-email" class="input" type="email" placeholder="philiplutz413@gmail.com" required>
+						</div>
+					</div>
+          <div class="form-input">
+						<label for="js-signup-password" class="label"><b>Password</b></label>
+						<div>	
+							<input id="js-signup-password" class="input" type="password" minlength="10" placeholder="s3cr3tPa$$w0rd" required>
+						</div>
+					</div>
+          <button role="button" type="submit" class="button">Create Account</button>
+        </fieldset>
+      </form>
+    </main>
+    <script type="text/javascript" src="./js/users.js"></script>
+  </body>
+</html>
