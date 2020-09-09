@@ -26,12 +26,16 @@ function getAllUserMovies(user_id) {
   return Movies().where('user_id', user_id);
 }
 
+function getSingleMovieId(api_id) {
+	return Movies().where('api_id', api_id).first();
+}
+
 function addMovie(movie) {
   return Movies().insert(movie);
 }
 
-function deleteMovie(movie_id) {
-  return Movies().where('movie_id', movie_id).del();
+function deleteMovie(api_id) {
+  return Movies().where('api_id', api_id).del();
 }
 
 module.exports = {
@@ -39,6 +43,7 @@ module.exports = {
   getUserEmail: getUserEmail,
   addUser: addUser,
   getAllUserMovies: getAllUserMovies,
+	getSingleMovieId: getSingleMovieId,
   addMovie: addMovie,
   deleteMovie: deleteMovie
 };
