@@ -41,19 +41,27 @@ const Movie = {
     if (!req.body.api_id) {
 			return res.status(400).send({'message': 'Some values are missing'});
 		}	else {
-			const movie = [{
-				movie_id: uuidv4(),
-				user_id: req.user.user_id,
-				api_id: req.body.api_id,
-				created_date: moment(new Date())
-			}];
-			queries.addMovie(movie)
-			.then(function() {
-				return res.status(201).send({'message':'Movie successfully added to database'})
-			})
-			.catch(function(error) {
-				next(error);
-			})
+      queries.getSingleMovieId(req.body.api_id)
+      .then(function(data) {
+        if (!data) {
+          const movie = [{
+    				movie_id: uuidv4(),
+    				user_id: req.user.user_id,
+    				api_id: req.body.api_id,
+    				created_date: moment(new Date())
+    			}];
+    			queries.addMovie(movie)
+    			.then(function() {
+    				return res.status(201).send({'message':'Movie successfully added to database'})
+    			})
+    			.catch(function(error) {
+    				next(error);
+    			})
+        }
+      })
+      .catch(function() {
+        next(error);
+      })
 		}
   },
   delete(req, res, next) {
